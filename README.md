@@ -21,17 +21,20 @@ Open Source Wiki / Team Collaboration / Knowledge Base software inspired by Atla
 
 # Screenshots
 
-Categories
+===================================================================================
+
 ![Categories](/../screenshots/categories.png?raw=true "Categories")
 
+===================================================================================
 
-Category Page
 ![Category Page](/../screenshots/category_page.png?raw=true "Category Page")
 
+===================================================================================
 
-Page
 ![Page](/../screenshots/page.png?raw=true "Page")
 
+===================================================================================
 
-Page Create
 ![Page Create](/../screenshots/page_create.png?raw=true "Page Create")
+
+===================================================================================
