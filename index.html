@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="owiki">
+    <head>
+
+        <title>oWiki</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="https://bootswatch.com/readable/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular-cookies.min.js"></script>
+        <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+
+        <script src="//cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
+
+        <script src="res/js/owiki.js"></script>
+
+        <script src="res/components/http/api-service.js"></script>
+        <script src="res/components/user/user-service.js"></script>
+        <script src="res/components/category/category-service.js"></script>
+        <script src="res/components/login/login-controller.js"></script>
+        <script src="res/components/dashboard/dashboard-controller.js"></script>
+        <script src="res/components/category/category-controller.js"></script>
+        <script src="res/components/user/user-controller.js"></script>
+        <script src="res/components/page/page-controller.js"></script>
+        <script src="res/components/search/search-controller.js"></script>
+        <script src="res/components/admin/admin-controller.js"></script>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/">oWiki</a>
+                </div>
+                <div ng-show="user">
+                    <div id="navbar" collapse="navCollapsed" class="collapse navbar-collapse navbar-responsive-collapse">
+
+                        <ul class="nav navbar-nav">
+                            <li><a href="#/categories" ng-click="navCollapsed = true;">Categories</a></li>
+                            <li><a href="#/users" ng-click="navCollapsed = true;">Users</a></li>
+                        </ul>
+
+                        <div class="navbar-form navbar-left">
+                            <a href="#/page/create" role="button" class="btn btn-default" ng-click="navCollapsed = true;">Create</a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li dropdown>
+                                <a href="#" dropdown-toggle>{{user.name}} <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#/profile/edit" ng-click="navCollapsed = true;">Profile</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#/admin" ng-show="user.isAdmin" ng-click="navCollapsed = true;">Admin Panel</a></li>
+                                    <li class="divider" ng-show="user.isAdmin"></li>
+                                    <li><a href="" ng-click="doLogout(); navCollapsed = true;">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div class="navbar-form navbar-right" role="search">
+                            <div class="input-group">
+                                <input ng-model="navSearchQuery" type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <a ng-href="#/search/{{navSearchQuery}}" ng-click="navCollapsed = true;" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </nav>
+
+        <div ng-view></div>
+
+    </body>
+</html>

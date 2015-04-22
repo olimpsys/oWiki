@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+            <h1>Admin</h1>
+            <br/>
+            <ul>
+                <li><h4><a href="#/admin/user/create">Create new User</a></h4></li>
+                <li><h4>Edit existing user:</h4>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <input ng-model="editUserId" type="text" size="4" placeholder="ID" class="form-control">
+                            <span class="input-group-btn">
+                                <a class="btn btn-default" href="#/admin/user/{{editUserId}}/edit" ng-disabled="!editUserId">Edit User</a>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+</div>

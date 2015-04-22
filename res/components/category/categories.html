@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            
+            <alert ng-show="isError" type="danger" close="isError = false;">{{errorMsg}}</alert>
+
+            <h1>
+                Categories
+                <button class="btn btn-default btn-sm pull-right" ng-click="addCatMode = !addCatMode;
+                            createCategoryName = '';" ng-class="{active: addCatMode}">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </button>
+            </h1>
+
+            <div class="well" ng-show="addCatMode">
+                <div class="form-inline">
+                    <div class="input-group">
+                        <input ng-model="createCategoryName" type="text" class="form-control" placeholder="Category name">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" ng-click="createCategory()" ng-disabled="isLoading">
+                                <span ng-hide="isLoading">Create</span>
+                                <span ng-show="isLoading">Wait...</span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <br/>
+
+            <ul>
+                <li ng-repeat="category in categories"><h4><a ng-href="#/category/{{category.id}}">{{category.name}}</a></h4></li>
+            </ul>
+
+            <br/>
+
+        </div>
+    </div>
+</div>
+

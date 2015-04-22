@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+            <h1>
+                {{page.title}}
+                <a ng-href="#/page/{{page.id}}/edit" class="btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+            </h1>
+            
+            <small>
+                Created by
+                <a ng-href="#/user/{{page.created.user.id}}">{{page.created.user.name}}</a>
+                on {{page.createdDate | date:'medium'}}.
+            </small>
+            <small ng-show="{{page.updated}}">
+                Last update by
+                <a ng-href="#/user/{{page.updated.user.id}}">{{page.updated.user.name}}</a>
+                on {{page.updatedDate | date:'medium'}}.
+            </small>
+            
+            <br/><br/>
+            
+            <div ng-bind-html="pageContent"></div>
+            
+            <br/><br/>
+
+        </div>
+    </div>
+</div>
