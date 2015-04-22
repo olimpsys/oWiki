@@ -13,7 +13,8 @@ Open Source Wiki / Team Collaboration / Knowledge Base software inspired by Atla
 2. create folder (e.g. "owiki") on web server with PHP support and move "index.html", "res/" and "api/" to this folder
 3. configure database connection at api/class/sql/ConnectionProperty.class.php
 4. run db/db.sql to create database structure (edit if desired)
-5. insert first user to login: INSERT INTO `owiki`.`user` (`name`, `email`, `password`, `is_admin`) VALUES ('admin', 'your@email.com', 'e10adc3949ba59abbe56e057f20f883e', '1');
+5. insert first user to login:
+<code> INSERT INTO `owiki`.`user` (`name`, `email`, `password`, `is_admin`) VALUES ('admin', 'your@email.com', 'e10adc3949ba59abbe56e057f20f883e', '1'); </code>
 6. go to hosted folder on web browser, e.g. http://localhost/owiki/
 7. login with created user: your@email.com, 123456
 8. enjoy!
