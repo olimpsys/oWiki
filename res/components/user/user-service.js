@@ -34,11 +34,11 @@ angular.module('owiki')
                 return apiSvc.login(username, password).then(function (response) {
                     if (response.data.accesstoken) {
                         apiSvc.setAccessToken(response.data.accesstoken, remember);
-                        return true;
+                        return {success: true};
                     }
-                    return false;
-                }, function () {
-                    return false;
+                    return {success: false};
+                }, function (response) {
+                    return {success: false, error: response.data.error, status: response.data.status};
                 });
 
             };
