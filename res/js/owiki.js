@@ -1,4 +1,4 @@
-angular.module('owiki', ['ngRoute', 'ngCookies', 'ui.bootstrap'])
+angular.module('owiki', ['ngRoute', 'ngCookies', 'ui.bootstrap', 'angular-loading-bar'])
         .config(function ($routeProvider) {
             $routeProvider
                     .when('/login', {
