@@ -190,7 +190,8 @@ angular.module('owiki', ['ngRoute', 'ngCookies', 'ui.bootstrap', 'angular-loadin
                         for (var i = 1; i < matches.length; i++) {
                             var match = matches[i];
                             var key = matches[i].substr(1);
-                            url = url.replace(match, next.params[key]);
+                            var val = next.params[key] ? next.params[key] : '';
+                            url = url.replace(match, val);
                         }
 
                         return url;
@@ -198,7 +199,7 @@ angular.module('owiki', ['ngRoute', 'ngCookies', 'ui.bootstrap', 'angular-loadin
                         return next.originalPath;
                     }
                 };
-                
+
 
                 //skip auth check for certain/unprotected pages
                 this.skipLoginPaths = ['/login'];
