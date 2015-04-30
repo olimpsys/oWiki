@@ -1,10 +1,10 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-xs-12">
 
             <alert ng-show="isError" type="danger" close="isError = false;">{{errorMsg}}</alert>
             
-            <h1>
+            <h2>
                 {{category.newName|| category.name}}
 
                 <button class="btn btn-default btn-sm pull-right" ng-click="editMode = !editMode;
@@ -12,7 +12,7 @@
                     <span class="glyphicon glyphicon-cog"></span>
                 </button>
 
-            </h1>
+            </h2>
 
             <div ng-show="editMode" class="well pull-right">
 
@@ -57,13 +57,13 @@
     <div class="row">
         <div class="col-xs-12 col-sm-4">
 
-            <h3>
+            <h4>
                 SubCategories
                 <button class="btn btn-default btn-xs" ng-click="addSubCatMode = !addSubCatMode;
                             createSubcategoryName = '';" ng-class="{active: addSubCatMode}">
                     <span class="glyphicon glyphicon-plus"></span>
                 </button>
-            </h3>
+            </h4>
 
             <div class="well" ng-show="addSubCatMode">
                 <div class="form-inline">
@@ -81,18 +81,18 @@
 
             <br/>
 
-            <ul>
-                <li ng-repeat="subcategory in category.categories"><h4><a ng-href="#/category/{{subcategory.id}}">{{subcategory.name}}</a></h4></li>
-            </ul>
+            <div class="list-group">
+                <a class="list-group-item" ng-href="#/category/{{subcategory.id}}" ng-repeat="subcategory in category.categories">{{subcategory.name}}</a>
+            </div>
 
             <br/>
 
         </div>
         <div class="col-xs-12 col-sm-8">
-            <h3>Pages</h3>
+            <h4>Pages</h4>
             <br/>
             <ul>
-                <li ng-repeat="page in category.pages"><h4><a ng-href="#/page/{{page.id}}">{{page.title}}</a></h4></li>
+                <li ng-repeat="page in category.pages"><a ng-href="#/page/{{page.id}}"><big>{{page.title}}</big></a></li>
             </ul>
 
         </div>

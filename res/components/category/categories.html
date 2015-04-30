@@ -4,13 +4,13 @@
             
             <alert ng-show="isError" type="danger" close="isError = false;">{{errorMsg}}</alert>
 
-            <h1>
+            <h2>
                 Categories
                 <button class="btn btn-default btn-sm pull-right" ng-click="addCatMode = !addCatMode;
                             createCategoryName = '';" ng-class="{active: addCatMode}">
                     <span class="glyphicon glyphicon-cog"></span>
                 </button>
-            </h1>
+            </h2>
 
             <div class="well" ng-show="addCatMode">
                 <div class="form-inline">
@@ -28,9 +28,9 @@
             
             <br/>
 
-            <ul>
-                <li ng-repeat="category in categories"><h4><a ng-href="#/category/{{category.id}}">{{category.name}}</a></h4></li>
-            </ul>
+            <div class="list-group">
+                <a class="list-group-item" ng-repeat="category in categories" ng-href="#/category/{{category.id}}">{{category.name}}</a>
+            </div>
 
             <br/>
 
